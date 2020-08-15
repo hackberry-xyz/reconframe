@@ -22,7 +22,10 @@ class Host(Base):
     https = Column(Boolean)
     ip = Column(String)
     endpoints = relationship("Endpoint")
-    
+
+    def __repr__(self):
+        return "{0}://{1}:{2} ({3})".format(("https" if self.https else "http"), self.domain, self.port, self.ip)
+   
 
 class Endpoint(Base):
     __tablename__ = 'endpoints'
@@ -63,6 +66,8 @@ class HTTPRequest(Base):
     endpoint = Column(Integer, ForeignKey('endpoints.id'))
     response = relationship("HTTPResponse")
     headers = relationship("HTTPRequestHeader")
+
+    
 
 
 class HTTPResponse(Base):
