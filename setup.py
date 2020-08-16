@@ -24,7 +24,7 @@ setup(
         'colorama',
     ],
     package_dir={'reconframe':'src'},
-    packages=['reconframe'],
+    packages=['reconframe', 'reconframe.models'],
     entry_points='''
         [console_scripts]
         reconframe=reconframe.Cli:cli
