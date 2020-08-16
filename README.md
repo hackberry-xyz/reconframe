@@ -70,9 +70,7 @@ _For more examples and usage, please refer to the [Documentation](https://reconf
 
 ## Author & Contributors
 
-Author: Vikrant Singh Chauhan – [@0xcrypto](https://twitter.com/0xcrypto) – vi@hackberry.xyz
-
-<a href="https://www.buymeacoffee.com/0xcrypto" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/arial-white.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+Author: Vikrant Singh Chauhan – [@0xcrypto](https://twitter.com/0xcrypto) – vi@hackberry.xyz [![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/arial-white.png)](https://www.buymeacoffee.com/0xcrypto)
 
 
 ## Contributing
