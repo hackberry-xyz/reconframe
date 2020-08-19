@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
 from sqlalchemy.ext.declarative import declarative_base
-
-_info_types = set() - set()
+from reconframe import variables
 
 class Info(ABC):
     """An information object"""
@@ -45,9 +44,9 @@ class InfoGraph:
     pass
 
 def register_info_type(infotype):
-    if(isinstance(infotype, Info)):
-        _info_types.add(Info)
-        _info_types = _info_types - {Info}
+    if(issubclass(infotype, Info)):
+        variables.__info_types__.add(Info)
+        variables.__info_types__ = variables.__info_types__ - {Info}
     else:
         raise Exception("Not an Info Type")
 

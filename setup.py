@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from distutils.util import convert_path
 
 main_ns = {}
-ver_path = convert_path('src/version.py')
+ver_path = convert_path('src/variables.py')
 with open(ver_path) as ver_file:
     exec(ver_file.read(), main_ns)
 
@@ -24,7 +24,7 @@ setup(
         'colorama',
     ],
     package_dir={'reconframe':'src'},
-    packages=['reconframe', 'reconframe.models'],
+    packages=['reconframe', 'reconframe.info_types'],
     entry_points='''
         [console_scripts]
         reconframe=reconframe.cli:cli
