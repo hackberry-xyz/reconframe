@@ -70,15 +70,12 @@ _For more examples and usage, please refer to the [Documentation](https://reconf
 
 ## Author & Contributors
 
-Author: Vikrant Singh Chauhan – [@0xcrypto](https://twitter.com/0xcrypto) – vi@hackberry.xyz [![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/arial-white.png)](https://www.buymeacoffee.com/0xcrypto)
+Author: Vikrant Singh Chauhan – [@0xcrypto](https://twitter.com/0xcrypto) – vi@hackberry.xyz
 
 
 ## Contributing
-Presently reconframe is heavily under development which takes time and eventually, money. Due to lack of people, the development is completely dependent over one person - me. To solve this, I have introduced **Hackberry**. A to be registered not-for-profit organization that aims to shed my open source projects and provide financial assistance to its contributors. I am inviting people to join Hackberry and help me make more security and privacy tools.
+There are several ways to contribute:
 
-For this project, there are several ways to contribute:
-
-### Writing Code
 1. Fork it (<https://github.com/hackberry-xyz/reconframe/fork>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
@@ -87,9 +84,3 @@ For this project, there are several ways to contribute:
 
 ### Spreading the Word
 * [Tweet about reconframe](https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fhackberry-xyz%2Freconframe&text=Meet%20reconframe%21%20A%20reconnaissance%20framework.&via=0xcrypto)
-* Make a video tutorial - Good video tutorials will be listed here.
-* Write a blog post - Good posts will be linked here to give your website a credible backlink.
-* Write a book - Good books might be eligible for monetory rewards on Hackberry's discretion. But for now, lets have a stable release first. :) 
-
-### Sponsoring
-* Presently Hackberry is not accepting any monetory contribution. But you can still support the author and contributors directly.

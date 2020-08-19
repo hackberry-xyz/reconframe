@@ -13,7 +13,18 @@ def cli(ctx):
         click.echo(click.style('\n\treconframe v{0}'.format(variables.__version__), bold=True))
         click.echo(click.style('\tDocumentation: https://reconframe.hackberry.xyz'))
         click.echo(click.style('\tAuthor: @0xcrypto (https://twitter.com/0xcrypto)\n'))
-        embed()
+        try:
+            with open('recon.json', 'r') as project_file:
+                print(project_file.read())
+                
+        except FileNotFoundError:
+            config = {}
+            info_types = [Request, Response, Host, Endpoint, Body, Header]
+
+        project = Project(config)
+
+        click.echo("{} initialized. Access it with variable project")
+        embed(globals(), locals())
            
 
 @click.command()
