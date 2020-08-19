@@ -8,10 +8,11 @@ class Proxy:
             '--log-level', 'CRITICAL',
         ]
 
+        self.address = "0.0.0.0:{}".format(port)
+
     def start(self, callback=False, **kwargs):
         if(callable(callback)):
             with proxy_py.start(self.config):
                 return callback(**kwargs)
 
-        click.echo("Starting proxy at {}:{}".format("0.0.0.0", self.config[1]))
         proxy_py.main(self.config)

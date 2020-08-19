@@ -5,6 +5,9 @@ from io import BytesIO
 import pycurl
 
 
+
+
+
 Base = declarative_base()
 
 request_body = Table('request_body', Base.metadata,
@@ -100,3 +103,14 @@ class Response(Base):
     request = Column(Integer, ForeignKey('httprequests.id'))
     status = Column(Integer)
     headers = relationship("ResponseHeader")
+
+
+
+def request():
+    """Craft a Request object"""
+    pass
+
+def response():
+    """Craft a Response object"""
+    pass
+
