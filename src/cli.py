@@ -1,8 +1,11 @@
 import click, json, os, pickle
 from ptpython.repl import embed
 from reconframe import variables
+from reconframe.helpers import inform as parseInfo
+from reconframe import info_types as default_info_types
 from reconframe.project import Project
 from reconframe.http import Request, Response, Host, Endpoint, Body, Header
+import importlib
 
 @click.group(invoke_without_command=True)
 @click.version_option(version=variables.__version__)
@@ -10,22 +13,38 @@ from reconframe.http import Request, Response, Host, Endpoint, Body, Header
 def cli(ctx):
     """reconframe: A Python framework for web reconnaissance."""
     if ctx.invoked_subcommand is None:
+        os.system('clear')
         click.echo(click.style('\n\treconframe v{0}'.format(variables.__version__), bold=True))
         click.echo(click.style('\tDocumentation: https://reconframe.hackberry.xyz'))
         click.echo(click.style('\tAuthor: @0xcrypto (https://twitter.com/0xcrypto)\n'))
         try:
             with open('recon.json', 'r') as project_file:
-                print(project_file.read())
-                
+                config = json.load(project_file)
+
         except FileNotFoundError:
+            cli.warning("Not inside a project directory! Falling back to in memory project.")
             config = {}
-            info_types = [Request, Response, Host, Endpoint, Body, Header]
+
+        try:
+            info_types = importlib.import_module("meta/info_types.py")
+        except ImportError:
+            cli.warning("No info types found! Falling back to basic info types")
+            info_types = default_info_types
 
         project = Project(config)
 
-        click.echo("{} initialized. Access it with variable project")
-        embed(globals(), locals())
-           
+        if((type(project) == Project) and project.dsn):
+            cli.success("\"{}\" initialized. Access it with variable {}".format(project.name, click.style("project",bold=True)))
+
+        else:
+            cli.error("Failed to open project!")
+            exit(1)
+
+        embed({
+            'project': project,
+            'inform': lambda information: parseInfo(information, info_types)
+        })
+
 
 @click.command()
 @click.argument('path', default='')
@@ -34,13 +53,13 @@ def init(path):
     if(path):
         real_path = os.path.realpath(path)
         try:
-            click.echo('Creating project at {}...'.format(real_path))
+            cli.debug("Creating project at {}...".format(real_path))
             os.mkdir(real_path)
         except FileExistsError:
             pass
 
         if len(os.listdir(real_path)):
-            click.echo(click.style('[FileExistsError] The directory \'{}\' is not empty!'.format(path), fg='red'))
+            cli.error("The directory \'{}\' is not empty!".format(path))
             exit(1)
         
         os.chdir(real_path)
@@ -54,11 +73,17 @@ def init(path):
             with open('recon.json', 'w') as project_file:
                 json.dump(project.toJson(), project_file, indent=4)
 
-            click.echo(click.style('[Success] Project initialized successfully!', fg='green'))
-            click.echo(click.style('Information is sacred. Use it wisely.', fg='green', bold=True))
+            cli.success("Project initialized successfully!")
 
         else:
-            click.echo(click.style('[UnknownError] Something went wrong!', fg='red'))
-
+            cli.error("Something went wrong!")
+            exit(1)
 
 cli.add_command(init)
+
+
+cli.log = lambda message: click.echo(message)
+cli.debug = lambda message: cli.log(click.style("[*] {}".format(message), fg="cyan"))
+cli.error = lambda message: cli.log(click.style("[-] {}".format(message), fg="red"))
+cli.warning = lambda message: cli.log(click.style("[!] {}".format(message), fg="yellow"))
+cli.success = lambda message: cli.log(click.style("[+] {}".format(message), fg="green"))

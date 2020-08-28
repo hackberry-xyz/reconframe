@@ -1,7 +1,8 @@
-from reconframe.info import Info
+from reconframe.core import Base, Info
 
 class Request(Info):
-    pass
+    def pattern(information):
+        return True
 
 class Response(Info):
     pass
@@ -19,9 +20,9 @@ class Header(Info):
     pass
 
 def request(**kwargs):
-	"""expects named arguments - method, url, headers and a body"""
-	pass
+    """This function builds up a Request info type by parsing a string, file or data yielded by a proxy (See help on reconframe.proxy.HTTP)."""
+    pass
 
 def response(**kwargs):
-	"""expects named arguments - method, url, headers and a body"""
-	pass
+    """This function builds up a Response info type by parsing a string, file or data yielded by a proxy (See help on reconframe.proxy.HTTP)."""
+    pass
