@@ -21,6 +21,7 @@ setup(
 		'pycurl>=7.43',
 		'SQLAlchemy>=1.3',
 		'click>=7.1.2',
+        'pyppeteer>=0.2.2',
         'colorama',
     ],
     package_dir={'reconframe':'src'},
