@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import MetaData
-from reconframe import core
+from . import core
 from prompt_toolkit import prompt
 import json
 

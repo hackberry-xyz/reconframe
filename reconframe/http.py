@@ -1,4 +1,4 @@
-from reconframe.core import Base, Info
+from .core import Base, Info
 
 class Request(Info):
     def pattern(information):

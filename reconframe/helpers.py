@@ -1,4 +1,4 @@
-from reconframe import core
+from . import core
 import inspect
 
 def inform(information, info_types):

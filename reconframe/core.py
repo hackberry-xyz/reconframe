@@ -1,6 +1,6 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Text, DateTime, Float, Boolean, PickleType
-from reconframe import variables
+from . import variables
 
 Base = declarative_base()
 

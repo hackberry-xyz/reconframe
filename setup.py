@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from distutils.util import convert_path
 
 main_ns = {}
-ver_path = convert_path('src/variables.py')
+ver_path = convert_path('reconframe/variables.py')
 with open(ver_path) as ver_file:
     exec(ver_file.read(), main_ns)
 
@@ -24,7 +24,7 @@ setup(
         'pyppeteer>=0.2.2',
         'colorama',
     ],
-    package_dir={'reconframe':'src'},
+    package_dir={'reconframe':'reconframe'},
     packages=['reconframe'],
     entry_points='''
         [console_scripts]

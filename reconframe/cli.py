@@ -1,10 +1,10 @@
 import click, json, os, pickle
 from ptpython.repl import embed
-from reconframe import variables
-from reconframe.helpers import inform as parseInfo
-from reconframe import info_types as default_info_types
-from reconframe.project import Project
-from reconframe.http import Request, Response, Host, Endpoint, Body, Header
+from . import variables
+from .helpers import inform as parseInfo
+from . import info_types as default_info_types
+from .project import Project
+from .http import Request, Response, Host, Endpoint, Body, Header
 import importlib
 
 @click.group(invoke_without_command=True)
