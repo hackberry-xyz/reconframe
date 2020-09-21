@@ -18,7 +18,9 @@ Installing
 ==========
 
 Presently, reconframe is heavily under development. But you can still get
-a taste of it. Install using ``pip`` ::
+a taste of it. Install using ``pip``:
+
+.. code-block:: sh
 
     pip install git+https://github.com/hackberry-xyz/reconframe.git
 
