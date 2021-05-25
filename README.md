@@ -1,3 +1,6 @@
+*[DEPRECIATED]*
+In favor of our upcoming web penetration tool, reconframe has been depreciated.
+
 # ```reconframe```
 > A Python Framework for Reconnaissance.
 > Distributed under the MIT license. See [LICENSE](LICENSE) for more information. 
